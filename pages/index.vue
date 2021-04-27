@@ -3,32 +3,52 @@
     <div>
       <Logo />
       <h1 class="title">
-        code-galaxy-web
+        Code-Galaxy
       </h1>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      port: ''
+    }
+  },
+  // 方式一
+  // asyncData({ $axios }) {
+  //   return $axios.$get('http://localhost:9999/test-server/debug/getPort').then(res => {
+  //     console.log(res)
+  //     const port = res.data
+  //     return { port }
+  //   })
+  // }
+  // 方式二
+  // async asyncData({ $axios }) {
+  //   const res = await $axios.$get('/test-server/debug/getPort')
+  //   return {port: res.data}
+  // }
+    async asyncData({ $axios, app}) {
+      const res = await app.$getPort()
+      return {port: res.data}
+    },
+
+    async mounted() {
+      const res = await this.$getPort()
+    },
+
+    methods: {
+      getPort() {
+        const res = this.$getPort()
+      }
+    }
+
+
+}
 </script>
 
 <style>

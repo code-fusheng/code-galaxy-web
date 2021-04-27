@@ -1,8 +1,21 @@
 <template>
-  <div>
+  <div class="main">
+    <navbar />
     <Nuxt />
+    <bottom />
   </div>
 </template>
+
+<script>
+import Bottom from '@/layouts/bottom/index'
+import Navbar from '@/layouts/navbar/index'
+export default {
+  components: {
+    Navbar,
+    Bottom
+  }
+}
+</script>
 
 <style>
 html {
