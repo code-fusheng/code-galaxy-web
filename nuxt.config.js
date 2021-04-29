@@ -20,7 +20,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '微服务技术交流 在线考试 在线阅读 在线问答 网站' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -39,7 +39,9 @@ export default {
     '~/plugins/test-inject.js',
     '~/plugins/interceptor.js',
     // api
-    '~/api/test-server/debug.js'
+    '~/api/test-server/debug.js',
+    '~/plugins/element-ui.js',
+    '~/plugins/ant-ui.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -68,5 +70,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // 将 node_modules 目录下的匹配到的内容导出
+    transplie: [/^element-ui/, /^ant-ui/],
   }
 }

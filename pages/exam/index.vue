@@ -1,5 +1,5 @@
 <template>
     <div class="exam-container">
-        考试中心
+        在线考试
     </div>
 </template>

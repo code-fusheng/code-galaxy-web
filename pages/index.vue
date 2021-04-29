@@ -1,13 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
-      <h1 class="title">
-        Code-Galaxy
-      </h1>
-      <div class="links">
 
-      </div>
     </div>
   </div>
 </template>
@@ -33,17 +27,17 @@ export default {
   //   return {port: res.data}
   // }
     async asyncData({ $axios, app}) {
-      const res = await app.$getPort()
-      return {port: res.data}
+      // const res = await app.$getPort()
+      // return {port: res.data}
     },
 
     async mounted() {
-      const res = await this.$getPort()
+      // const res = await this.$getPort()
     },
 
     methods: {
       getPort() {
-        const res = this.$getPort()
+        // const res = this.$getPort()
       }
     }
 

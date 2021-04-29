@@ -1,13 +1,9 @@
 # code-galaxy-web 
 
 ```
-(2021/04/27 16:30 --- 2021/04/27 16:51) init : 项目初始化
+(2021/04/27 16:30 --- 2021/04/27 16:51) init : 项目初始化 nuxt.js + vue3.0 基础框架搭建
 (2021/04/27 17:00 --- 2021/04/27 23:43) config : 配置封装axios,proxy代理,后端Api调试
 ```
-
-
-
-
 
 ## Build Setup
 
@@ -73,3 +69,10 @@ export default {
 ```
 
 #### 代理转发解决跨域
+
+
+#### UI 框架配置 主题配置
+```shell
+# 安装 element-ui
+$ npm i element-ui -S
+```

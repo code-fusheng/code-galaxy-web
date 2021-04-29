@@ -1,5 +1,5 @@
 <template>
     <div class="article-container">
-        阅读中心
+        在线阅读
     </div>
 </template>
