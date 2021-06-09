@@ -20,9 +20,26 @@
         </router-link>
       </div>
       <div class="menu-item">
-        <router-link to="/exam">
-          <span class="item-text">在线考试</span>
-        </router-link>
+        <a-dropdown placement="bottomCenter" class="user-dropdown">
+          <span class="item-text">考试中心</span>
+          <a-menu slot="overlay" :style="{marginTop:'5px'}">
+            <a-menu-item>
+              <router-link to="/exam">
+                <span>在线考试</span>
+              </router-link>
+            </a-menu-item>
+            <a-menu-item>
+              <router-link to="/exam">
+                <span>模拟测试</span>
+              </router-link>
+            </a-menu-item>
+            <a-menu-item>
+              <router-link to="exam/question-train/question-index">
+                <span>题库练习</span>
+              </router-link>
+            </a-menu-item>
+          </a-menu>
+        </a-dropdown>
       </div>
       <div class="menu-item">
         <router-link to="/search">
@@ -47,7 +64,7 @@
             <a-menu-item>
               <a href="javascript:;"> <a-icon type="download" /> 退出</a>
             </a-menu-item>
-            
+
           </a-menu>
         </a-dropdown>
       </div>
@@ -72,6 +89,7 @@ export default {
     width: 100%;
     height: 44px;
     margin: 0;
+    margin-bottom: 10px;
     background-color: #333333;
     text-align: center;
     line-height: 44px;
@@ -86,23 +104,31 @@ export default {
     flex-direction: row;
     justify-content: space-around;
   }
-  
+
+  @media screen and (max-width:414px) {
+    .menu-container {
+      height: 308px;
+    }
+    .menu-item-list {
+      flex-direction: column;
+    }
+  }
+
   .menu-item {
     cursor: pointer;
   }
-  .item-text { 
+  .item-text {
     color: #d6d6d6;
   }
   .menu-item:hover .item-text{
     color: #f5f5f7;
   }
 
-  .user-dropdown {
+  /* .user-dropdown {
     margin-left: 15px;
     margin-right: 8px;
     margin-bottom: 8px;
-  }
-
+  } */
 
   /* ant-ui 样式 */
 

@@ -29,6 +29,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    // 全局引入样式
+    '@/assets/css/global.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -58,13 +60,13 @@ export default {
 
   axios: {
     proxy: true,  // 开启代理
-    prefix: '/dev-api' // 请求前缀
+    prefix: '/webApi' // 请求前缀
   },
 
   proxy: {
-    '/dev-api': {
+    '/webApi': {
       target: 'http://localhost:9999',
-      pathRewrite: {'^/dev-api': ''}
+      pathRewrite: {'^/webApi': ''}
     }
   },
 
