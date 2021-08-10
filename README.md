@@ -4,6 +4,7 @@
 (2021/04/27 16:30 --- 2021/04/27 16:51) init : 项目初始化 nuxt.js + vue3.0 基础框架搭建
 (2021/04/27 17:00 --- 2021/04/27 23:43) config : 配置封装axios,proxy代理,后端Api调试
 (2021/04/29 09:00 --- 2021/04/29 19:28) feature : 新增前端UI AntD、Element-UI配置,初步完成导航栏设计
+(2021/08/10 20:00 --- 2021/08/11 13:49) feature : 新增 mavon-editor MarkDown 编辑组件(尚存在刷新问题)
 ```
 
 ## Build Setup
@@ -76,4 +77,14 @@ export default {
 ```shell
 # 安装 element-ui
 $ npm i element-ui -S
+```
+
+#### 环境变量配置
+* 1、安装 cross-env
+```
+npm install --save-dev cross-env
+```
+#### Nuxt 服务端获取 Cookie 赋值状态 (nuxtServerInit)
+```
+npm install cookie-universal-nuxt
 ```

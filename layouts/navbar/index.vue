@@ -10,6 +10,11 @@
         </router-link>
       </div>
       <div class="menu-item">
+        <router-link to="/test">
+          <span class="item-text">测试</span>
+        </router-link>
+      </div>
+      <div class="menu-item">
         <router-link to="/article">
           <span class="item-text">在线阅读</span>
         </router-link>
@@ -34,8 +39,20 @@
               </router-link>
             </a-menu-item>
             <a-menu-item>
-              <router-link to="exam/question-train/question-index">
+              <router-link to="/exam/question-train/index">
                 <span>题库练习</span>
+              </router-link>
+            </a-menu-item>
+          </a-menu>
+        </a-dropdown>
+      </div>
+      <div class="menu-item">
+        <a-dropdown placement="bottomCenter" class="user-dropdown">
+          <span class="item-text">工具箱</span>
+          <a-menu slot="overlay" :style="{marginTop:'5px'}">
+            <a-menu-item>
+              <router-link to="/tool/create/article-create">
+                <span>创建文章</span>
               </router-link>
             </a-menu-item>
           </a-menu>
@@ -56,15 +73,18 @@
           <span class="item-text"><a-icon type="user" :style="{ fontSize: '18px' }" /></span>
           <a-menu slot="overlay" :style="{marginTop:'5px'}">
             <a-menu-item>
-              <a href="javascript:;"> <a-icon type="user"/> 账户</a>
+              <a href="javascript:;"> <a-icon type="user"/>
+                <router-link to="/user">
+                  <span>账户</span>
+                </router-link>
+              </a>
             </a-menu-item>
-            <a-menu-item>
-              <a href="javascript:;"> <a-icon type="upload" /> 登录</a>
+            <a-menu-item v-if="!userInfo">
+              <a href="javascript:;" @click="$store.dispatch('LoginPage')"> <a-icon type="upload"/> 登录</a>
             </a-menu-item>
-            <a-menu-item>
+            <a-menu-item v-if="userInfo">
               <a href="javascript:;"> <a-icon type="download" /> 退出</a>
             </a-menu-item>
-
           </a-menu>
         </a-dropdown>
       </div>
@@ -73,9 +93,16 @@
 </template>
 <script>
 export default {
+  computed: {
+    userInfo() {
+      return this.$store.state.userInfo
+    }
+  },
   data() {
     return {
-
+        created() {
+          console.log(this.$store.state.userInfo)
+        }
     }
   }
 }

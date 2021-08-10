@@ -3,7 +3,7 @@ export default {
   mode: 'universal',
   server: {
     port: 8000,
-    host: '0.0.0.0'
+    host: 'localhost'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -30,7 +30,13 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     // 全局引入样式
-    '@/assets/css/global.css'
+    '@/assets/css/global.css',
+    // 基础UI样式
+    'element-ui/lib/theme-chalk/index.css',
+    // 自适应布局样式
+    'element-ui/lib/theme-chalk/display.css',
+    'mavon-editor/dist/css/index.css',
+    'mavon-editor/dist/markdown/github-markdown.min.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -40,10 +46,11 @@ export default {
     // {src: '~/plugins/test-inject.js', mode: 'server'},  // 插件只会在服务端运行
     '~/plugins/test-inject.js',
     '~/plugins/interceptor.js',
-    // api
-    '~/api/test-server/debug.js',
     '~/plugins/element-ui.js',
-    '~/plugins/ant-ui.js'
+    '~/plugins/ant-ui.js',
+    '~/plugins/mavon-editor.js',
+    // api
+    '~/api/test/test.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -55,7 +62,8 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'cookie-universal-nuxt'
   ],
 
   axios: {
@@ -74,5 +82,11 @@ export default {
   build: {
     // 将 node_modules 目录下的匹配到的内容导出
     transplie: [/^element-ui/, /^ant-ui/],
+  },
+
+  // 环境变量配置
+  env: {
+    // 认证客户端 URL
+    authURL: process.env.NODE_ENV === 'dev' ? '//localhost:7000' : '//login.fusheng.xyz:7000'
   }
 }

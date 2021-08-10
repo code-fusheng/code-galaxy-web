@@ -170,7 +170,7 @@ export default {
 <style scoped>
 .question-train-container {
   clear: both;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: 20px auto;
   padding: 10px;
   width: 90%;
@@ -180,13 +180,13 @@ export default {
 }
 
 .left-content-container {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 70%;
   margin: 10px;
 }
 
 .right-recomed-container {
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
   width: 30%;
   margin: 10px;
 }

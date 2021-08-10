@@ -22,10 +22,10 @@ export default {
   //   })
   // }
   // 方式二
-  // async asyncData({ $axios }) {
-  //   const res = await $axios.$get('/test-server/debug/getPort')
-  //   return {port: res.data}
-  // }
+  async asyncData({ $axios }) {
+    const res = await $axios.$get('/test-server/debug/getPort')
+    return {port: res.data}
+  },
     async asyncData({ $axios, app}) {
       // const res = await app.$getPort()
       // return {port: res.data}
@@ -36,9 +36,6 @@ export default {
     },
 
     methods: {
-      getPort() {
-        // const res = this.$getPort()
-      }
     }
 
 
