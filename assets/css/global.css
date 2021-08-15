@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 半圆角输入框 */
+.input-semicircle {
+  border-radius: 25px !important;
+}
+
+.ml10 {
+  margin-left: 10px;
+}

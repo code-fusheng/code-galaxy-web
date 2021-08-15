@@ -35,8 +35,6 @@ export default {
     'element-ui/lib/theme-chalk/index.css',
     // 自适应布局样式
     'element-ui/lib/theme-chalk/display.css',
-    'mavon-editor/dist/css/index.css',
-    'mavon-editor/dist/markdown/github-markdown.min.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -48,9 +46,10 @@ export default {
     '~/plugins/interceptor.js',
     '~/plugins/element-ui.js',
     '~/plugins/ant-ui.js',
-    '~/plugins/mavon-editor.js',
+    {src: '~/plugins/mavon-editor.js', ssr: false},
     // api
-    '~/api/test/test.js'
+    '~/api/test/test.js',
+    '~/api/article/category.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -87,6 +86,8 @@ export default {
   // 环境变量配置
   env: {
     // 认证客户端 URL
-    authURL: process.env.NODE_ENV === 'dev' ? '//localhost:7000' : '//login.fusheng.xyz:7000'
+    baseURL: '',
+    authURL: process.env.NODE_ENV === 'dev' ? '//localhost:7000' : '//login.fusheng.xyz:7000',
+    uploadURL: process.env.NODE_ENV === 'dev' ? 'localhost:9999/sys-server/api/upload/uploadImage' : '47.111.158.6:9999/sys-server/api/upload/uploadImage'
   }
 }

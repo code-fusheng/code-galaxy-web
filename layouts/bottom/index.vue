@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bottom-text"><div>
+    <div id="bottom" ref="bottom" class="bottom-text"><div>
       <span class="span-title">个人站点 | Code-Galaxy</span> | ©2021 | Created by <span class="span-author">code-fusheng</span><br>
       <span class="span-demo">湘ICP备20004440号-1</span>
     </div>

@@ -13,9 +13,11 @@
     "ant-design-vue": "^1.7.4",
     "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.9.1",
+    "echarts": "^5.1.2",
     "element-ui": "^2.15.1",
+    "iview": "^3.5.4",
     "mavon-editor": "^2.9.1",
-    "nuxt": "^2.15.3"
+    "nuxt": "^2.15.4"
   },
   "devDependencies": {
     "cross-env": "^7.0.3"

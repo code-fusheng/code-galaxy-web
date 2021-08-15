@@ -1,6 +1,6 @@
 <template>
   <!-- 顶部导航拦 -->
-  <div class="menu-container">
+  <div id="top" ref="top" class="menu-container">
     <!-- 导航栏项目 -->
     <div class="menu-item-list">
       <div class="menu-item">
