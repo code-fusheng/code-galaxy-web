@@ -7,7 +7,7 @@
         </a-button>
       </a-col>
       <a-col :span="14">
-        <a-input class="input-semicircle" placeholder="文章标题" />
+        <a-input class="input-semicircle" v-model="article.articleTitle" placeholder="文章标题" />
       </a-col>
       <a-col :span="2">
         <a-button type="link">0/100</a-button>
@@ -43,8 +43,8 @@
       title="文章信息"
       :dialog-style="{ top: '20px' }"
       :visible="modalVisible"
-      @ok="() => setModal1Visible(false)"
-      @cancel="() => setModal1Visible(false)"
+      @ok="() => onSubmit()"
+      @cancel="() => close()"
     >
       <a-form-model :model="article" :label-col="labelCol" :wrapper-col="wrapperCol">
         <a-form-model-item label="文章分类">
@@ -138,6 +138,17 @@ export default {
       const { data } = await this.$listAllCategory();
       this.categoryList = data;
       this.modalVisible = true;
+    },
+    async onSubmit() {
+      this.article.articleContent = this.$refs.md.d_value
+      this.article.editContent = this.$refs.md.d_render
+      this.article.useTime = this.useTime
+      this.article.editModel = this.editModel
+      const { data } = await this.$saveDraft(this.article);
+      this.modalVisible = false
+    },
+    close() {
+      this.modalVisible = false
     },
     setModal1Visible(modalVisible) {
       this.modalVisible = modalVisible;

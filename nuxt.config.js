@@ -49,7 +49,8 @@ export default {
     {src: '~/plugins/mavon-editor.js', ssr: false},
     // api
     '~/api/test/test.js',
-    '~/api/article/category.js'
+    '~/api/article/category.js',
+    '~/api/article/article.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

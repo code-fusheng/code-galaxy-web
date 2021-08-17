@@ -51,7 +51,7 @@
           <span class="item-text">工具箱</span>
           <a-menu slot="overlay" :style="{marginTop:'5px'}">
             <a-menu-item>
-              <router-link to="/tool/create/article-create">
+              <router-link to="/tool/create">
                 <span>创建文章</span>
               </router-link>
             </a-menu-item>
