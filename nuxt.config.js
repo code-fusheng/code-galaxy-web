@@ -1,3 +1,4 @@
+const env = require('./env')
 export default {
 
   mode: 'universal',
@@ -88,7 +89,8 @@ export default {
   env: {
     // 认证客户端 URL
     baseURL: '',
-    authURL: process.env.NODE_ENV === 'dev' ? '//localhost:7000' : '//login.fusheng.xyz:7000',
-    uploadURL: process.env.NODE_ENV === 'dev' ? 'localhost:9999/sys-server/api/upload/uploadImage' : '47.111.158.6:9999/sys-server/api/upload/uploadImage'
+    authURL: env[process.env.NODE_ENV].authURL,
+    uploadURL: env[process.env.NODE_ENV].uploadURL,
+    webSocketURL: env[process.env.NODE_ENV].webSocketURL
   }
 }

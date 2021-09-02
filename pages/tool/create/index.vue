@@ -48,7 +48,11 @@
     >
       <a-form-model :model="article" :label-col="labelCol" :wrapper-col="wrapperCol">
         <a-form-model-item label="文章分类">
-          <a-select v-model="article.articleCategory" placeholder="请选择您的文章分类" @change="autoSetImage(article.articleCategory)">
+          <a-select
+            v-model="article.articleCategory"
+            placeholder="请选择您的文章分类"
+            @change="autoSetImage(article.articleCategory)"
+          >
             <a-select-option
               v-for="category in categoryList"
               :value="category.categoryId"
@@ -57,19 +61,12 @@
           </a-select>
         </a-form-model-item>
         <a-form-model-item label="文章封面">
-          <a-upload
-            name="file"
-            class="avatar-uploader"
-            :action="uploadUrl"
-            @change="uploadSuccess"
-          >
-          <img v-if="imageUrl || article.articleImage" :src="imageUrl" class="avatar">
-          <div v-else>
-            <a-icon :type="loading ? 'loading' : 'plus'" />
-            <div class="ant-upload-text">
-              Upload
+          <a-upload name="file" class="avatar-uploader" :action="uploadUrl" @change="uploadSuccess">
+            <img v-if="imageUrl || article.articleImage" :src="imageUrl" class="avatar" />
+            <div v-else>
+              <a-icon :type="loading ? 'loading' : 'plus'" />
+              <div class="ant-upload-text">Upload</div>
             </div>
-          </div>
           </a-upload>
         </a-form-model-item>
       </a-form-model>
@@ -78,6 +75,7 @@
 </template>
 
 <script>
+import env from "@/env";
 export default {
   data() {
     return {
@@ -99,10 +97,11 @@ export default {
       modalVisible: false,
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
-      uploadUrl: 'http://localhost:9999/sys-server/api/upload/uploadImage',
+      uploadUrl: "http://localhost:9999/sys-server/api/upload/uploadImage",
       imageUrl: null, // 上传图片回显
-      headers: { // 上传文件的请求头
-        Authorization: 'Bearer ' + this.$store.state.accessToken
+      headers: {
+        // 上传文件的请求头
+        Authorization: "Bearer " + this.$store.state.accessToken,
       },
     };
   },
@@ -131,24 +130,32 @@ export default {
   },
   created() {
     this.timeTask();
+    this.init();
+    for (const envItem of Object.values(env)) {
+      if (envItem.NODE_ENV === process.env.NODE_ENV) {
+        this.uploadUrl = envItem.uploadUrl;
+      }
+    }
   },
   methods: {
-    // saveDraft 保存草稿
-    async saveDraft() {
+    async init() {
       const { data } = await this.$listAllCategory();
       this.categoryList = data;
+    },
+    // saveDraft 保存草稿
+    async saveDraft() {
       this.modalVisible = true;
     },
     async onSubmit() {
-      this.article.articleContent = this.$refs.md.d_value
-      this.article.editContent = this.$refs.md.d_render
-      this.article.useTime = this.useTime
-      this.article.editModel = this.editModel
+      this.article.articleContent = this.$refs.md.d_value;
+      this.article.editContent = this.$refs.md.d_render;
+      this.article.useTime = this.useTime;
+      this.article.editModel = this.editModel;
       const { data } = await this.$saveDraft(this.article);
-      this.modalVisible = false
+      this.modalVisible = false;
     },
     close() {
-      this.modalVisible = false
+      this.modalVisible = false;
     },
     setModal1Visible(modalVisible) {
       this.modalVisible = modalVisible;
@@ -174,12 +181,12 @@ export default {
     // 文件上传
     uploadSuccess(res, file) {
       this.loading = true;
-      console.log(res)
+      console.log(res);
       this.loading = false;
     },
     autoSetImage(val) {
-      console.log(val)
-    }
+      console.log(val);
+    },
   },
 };
 </script>
