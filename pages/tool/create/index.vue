@@ -103,6 +103,7 @@ export default {
         // 上传文件的请求头
         Authorization: "Bearer " + this.$store.state.accessToken,
       },
+      currentCategory: {},
     };
   },
   watch: {
@@ -147,6 +148,7 @@ export default {
       this.modalVisible = true;
     },
     async onSubmit() {
+      this.article.articleImage = this.imageUrl;
       this.article.articleContent = this.$refs.md.d_value;
       this.article.editContent = this.$refs.md.d_render;
       this.article.useTime = this.useTime;
@@ -182,10 +184,19 @@ export default {
     uploadSuccess(res, file) {
       this.loading = true;
       console.log(res);
+      this.imageUrl = res.data;
       this.loading = false;
     },
     autoSetImage(val) {
       console.log(val);
+      this.currentCategory = this.categoryList.filter(function (
+        value,
+        index,
+        arr
+      ) {
+        return value.categoryId === val;
+      });
+      this.imageUrl = this.currentCategory[0].categoryImage;
     },
   },
 };
@@ -212,7 +223,7 @@ export default {
 }
 
 /*  */
-img {
+.avatar {
   width: 300px;
   height: 150px;
 }
