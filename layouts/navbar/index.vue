@@ -55,6 +55,11 @@
                 <span>创建文章</span>
               </router-link>
             </a-menu-item>
+            <a-menu-item>
+              <router-link to="/tool/socket">
+                <span>协同编辑</span>
+              </router-link>
+            </a-menu-item>
           </a-menu>
         </a-dropdown>
       </div>
