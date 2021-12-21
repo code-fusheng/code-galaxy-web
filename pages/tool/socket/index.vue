@@ -1,5 +1,8 @@
 <template>
   <div>
+    <router-link to="/tool/socket/index-netty">
+      <a-button>协同-Netty</a-button>
+    </router-link>
     <p>协同编辑-在线用户</p>
     <span v-for="userItem in roomObj.userList" :key="userItem.userId">{{ userItem.userId }}</span>
     <br />
