@@ -2,6 +2,9 @@ const env = require('./env')
 export default {
 
   mode: 'universal',
+  generate: {
+    dir: 'code-galaxy-web'
+  },
   server: {
     port: 8000,
     host: 'localhost'
@@ -9,7 +12,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '个人站点 ｜ Code-Galaxy',
+    title: '个人站点 | Code-Galaxy',
     // HTML 属性配置
     htmlAttrs: {
       lang: 'en'
@@ -47,6 +50,7 @@ export default {
     '~/plugins/interceptor.js',
     '~/plugins/element-ui.js',
     '~/plugins/ant-ui.js',
+    '~/plugins/secret.js',
     {src: '~/plugins/mavon-editor.js', ssr: false},
     // api
     '~/api/test/test.js',

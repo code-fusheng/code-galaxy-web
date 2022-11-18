@@ -10,7 +10,7 @@ module.exports = {
     NODE_ENV: 'production',
     baseURL: '',
     authURL: '//login.fusheng.xyz:7000',
-    uploadURL: '47.111.158.6:9999/sys-server/api/upload/uploadImage',
-    webSocketURL: 'ws://47.111.158.6:9999/sys-server/api/push/websocket'
+    uploadURL: '42.192.222.62:9999/sys-server/api/upload/uploadImage',
+    webSocketURL: 'ws://42.192.222.62:9999/sys-server/api/push/websocket'
   }
 }

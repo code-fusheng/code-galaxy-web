@@ -60,6 +60,11 @@
                 <span>协同编辑</span>
               </router-link>
             </a-menu-item>
+            <a-menu-item>
+              <router-link to="/tool/other">
+                <span>测试</span>
+              </router-link>
+            </a-menu-item>
           </a-menu>
         </a-dropdown>
       </div>

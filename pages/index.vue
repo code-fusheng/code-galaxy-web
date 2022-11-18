@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-    <div>
-
-    </div>
+    <div></div>
   </div>
 </template>
 
@@ -10,8 +8,8 @@
 export default {
   data() {
     return {
-      port: ''
-    }
+      port: ""
+    };
   },
   // 方式一
   // asyncData({ $axios }) {
@@ -23,23 +21,20 @@ export default {
   // }
   // 方式二
   async asyncData({ $axios }) {
-    const res = await $axios.$get('/test-server/debug/getPort')
-    return {port: res.data}
+    const res = await $axios.$get("/test-server/debug/getPort");
+    return { port: res.data };
   },
-    async asyncData({ $axios, app}) {
-      // const res = await app.$getPort()
-      // return {port: res.data}
-    },
+  async asyncData({ $axios, app }) {
+    // const res = await app.$getPort()
+    // return {port: res.data}
+  },
 
-    async mounted() {
-      // const res = await this.$getPort()
-    },
+  async mounted() {
+    // const res = await this.$getPort()
+  },
 
-    methods: {
-    }
-
-
-}
+  methods: {}
+};
 </script>
 
 <style>
@@ -53,16 +48,8 @@ export default {
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
