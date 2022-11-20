@@ -5,8 +5,8 @@ export default {
     dir: 'code-galaxy-web'
   },
   server: {
-    port: 58000,
-    host: 'localhost'
+    port: 11110,
+    host: '0.0.0.0'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -48,11 +48,11 @@ export default {
     '~/plugins/element-ui.js',
     '~/plugins/ant-ui.js',
     '~/plugins/secret.js',
-    { src: '~/plugins/mavon-editor.js', ssr: false },
+    { src: '~/plugins/mavon-editor.js', ssr: false }
     // api
-    '~/api/test/test.js',
-    '~/api/article/category.js',
-    '~/api/article/article.js'
+    // '~/api/test/test.js',
+    // '~/api/article/category.js',
+    // '~/api/article/article.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
